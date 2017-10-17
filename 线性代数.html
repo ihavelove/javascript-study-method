@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>
+            .deter
+            {
+                width:40px;
+                height:40px;
+            }
+
+
+
+        </style>
+        <title>线性代数算法</title>
+
+
+    </head>
+    <body>
+        <div id="head">
+            <pre>请输入阶数</pre>
+            <input type="number" id="num" >
+            <button id="start">生成</button>
+        </div>
+        <script type="text/javascript">
+            var start = document.getElementById("start");
+            start.onclick = function ()
+            {
+                var num = document.getElementById("num").value;
+                if (num=="") return false;
+                else createtables(num); 
+            }
+            function createtables(n)
+            {
+                var determinants = new Array(n + 1);
+                for (var i = 1; i <= n; i++)
+                {
+                    determinants[i] = new Array(n + 1);
+                }
+                var form = document.createElement("table");
+                form.setAttribute("id","forms");
+                document.body.appendChild(form);
+                var tr = new Array(n + 1);
+                for (var i = 1; i <= n; i++)
+                {
+                    tr[i] = document.createElement("tr");
+                    form.appendChild(tr[i]);
+                    for (var j = 1; j <= n; j++) {
+                        var td = document.createElement("td");
+                        tr[i].appendChild(td);
+                        determinants[i][j] = document.createElement("input");
+                        determinants[i][j].setAttribute("class", "deter");
+                        td.appendChild(determinants[i][j]);
+                    }
+                }
+                var count = document.createElement("button");
+                count.setAttribute("id", "count");
+                form.appendChild(count);
+                count.appendChild(document.createTextNode("计算"));
+                var result = document.createElement("div");
+                result.setAttribute("id","result");
+                count.onclick = function ()
+                {
+                    calculation(n, determinants,result);
+                }
+            }
+            function calculation(n, d, result)
+            {   
+                var kind = 0;
+                for (var i = 1; i <= n; i++)
+                {
+                    for (var j = 1; j <= n; j++)
+                    {
+                        if (d[i][j].value == "" || d[i][j].value == NaN) d[i][j].value = 0;
+                    }
+                }
+                function arranges()
+                {
+                    var storage = new array();
+                    var all=1;
+                    var str = new Array(n + 1);
+                    for (var i = 1; i <= n; i++)
+                    {
+                        str[i] = i;
+                        all *= i;
+                    }
+                    for (var i = 0; i <= all; i++)
+                    {
+                        for (var j = 1; j <= n; j++)
+                        {
+
+
+                        }
+
+
+                    } 
+                }
+
+
+            }
+            function r(array)
+            {
+                var rValue = 0;
+                for (var i = 1; i <= array.length; i++)
+                {
+                    for (var j = 0; j < i; j++)
+                    {
+                        if (array[i].value - array[j].value < 0) rValue += 1;
+                    }
+                }
+                return rValue
+            }
+
+
+
+        </script>
+
+
+
+    </body>
+</html>
